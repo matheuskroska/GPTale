@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import theme from '../../styles/theme';
 
 export const StyledTextArea = styled.textarea`
-  font-size: 1.6rem;
+  font-size: ${theme.font.sizes.paragraph};
   font-family: ${theme.font.family};
   color: ${theme.colors.gray.light};
   resize: none;

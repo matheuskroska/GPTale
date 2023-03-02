@@ -38,7 +38,7 @@ export const theme = {
     md: '1rem',
     lg: '1.5rem',
     xl: '2rem',
-    xxl: '3rem',
+    xxl: '4rem',
   },
   breakpoints: {
     xs: '576px',

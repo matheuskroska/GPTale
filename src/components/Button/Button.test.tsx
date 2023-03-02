@@ -1,5 +1,5 @@
 import { describe, it, vi } from 'vitest';
-import { Matcher, fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import renderer from 'react-test-renderer';
 import 'jest-styled-components';
 import { Button } from './Button';

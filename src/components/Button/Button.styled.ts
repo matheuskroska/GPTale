@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import theme from '../styles/theme';
+import theme from '../../styles/theme';
 import { ButtonProps } from './Button';
 import { BUTTON_VARIANTS } from './Button';
 
@@ -30,9 +30,11 @@ const secondaryStyles = css<ButtonProps>`
 `;
 
 const baseStyles = css<ButtonProps>`
-  padding: ${theme.spacing.sm} ${theme.spacing.md};
+  padding: ${theme.spacing.sm} ${theme.spacing.lg};
   border-radius: ${theme.borderRadius.xl};
+  font-size: ${theme.font.sizes.paragraph};
   border: none;
+  height: ${theme.spacing.xxl};
   cursor: pointer;
 `;
 

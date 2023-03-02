@@ -1,3 +1,4 @@
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import {
   StyledError,
   StyledLabel,
@@ -10,10 +11,6 @@ export interface TextAreaProps {
   name: string;
   value: string;
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
-  onBlur?: (event: React.FocusEvent<HTMLTextAreaElement>) => void;
-  error?: string;
-  touched?: boolean;
-  [key: string]: any;
 }
 
 export const TextArea = ({
@@ -21,11 +18,21 @@ export const TextArea = ({
   name,
   value,
   onChange,
-  onBlur,
-  error,
-  touched,
   ...props
 }: TextAreaProps) => {
+  const [textareaHeight, setTextareaHeight] = useState<string>('auto');
+
+  useEffect(() => {
+    setTextareaHeight(`${document.getElementById(name)?.scrollHeight}px`);
+  }, [value, name]);
+
+  const handleTextAreaChange = (
+    event: React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    setTextareaHeight('auto');
+    onChange(event);
+  };
+
   return (
     <StyledWrapper>
       {label && <StyledLabel htmlFor={name}>{label}</StyledLabel>}
@@ -33,11 +40,10 @@ export const TextArea = ({
         id={name}
         name={name}
         value={value}
-        onChange={onChange}
-        onBlur={onBlur}
+        onChange={handleTextAreaChange}
+        style={{ height: textareaHeight }}
         {...props}
       />
-      {touched && error && <StyledError>{error}</StyledError>}
     </StyledWrapper>
   );
 };

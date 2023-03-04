@@ -2,15 +2,17 @@ import styled, { css } from 'styled-components';
 import theme from '../../styles/theme';
 
 export const StyledTextArea = styled.textarea`
-  font-size: ${theme.font.sizes.paragraph};
+  font-size: ${theme.font.sizes.textArea};
   font-family: ${theme.font.family};
   color: ${theme.colors.gray.light};
   resize: none;
   width: 100%;
-  max-height: ${theme.spacing.xxl};
   max-width: 48rem;
   background-color: transparent;
+  height: auto;
+  max-height: 20rem;
   border: 0;
+  overflow-y: hidden;
 `;
 
 export const StyledLabel = styled.label`

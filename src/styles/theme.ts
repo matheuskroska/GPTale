@@ -12,6 +12,7 @@ export const theme = {
       subtitle: '2.25rem',
       paragraph: '1.5rem',
       small: '1.25rem',
+      textArea: '1.8rem',
     },
   },
   borderRadius: {

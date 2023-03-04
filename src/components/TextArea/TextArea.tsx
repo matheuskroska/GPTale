@@ -10,6 +10,7 @@ export interface TextAreaProps {
   label?: string;
   name: string;
   value: string;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void;
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
@@ -18,20 +19,17 @@ export const TextArea = ({
   name,
   value,
   onChange,
+  onKeyDown,
   ...props
 }: TextAreaProps) => {
-  const [textareaHeight, setTextareaHeight] = useState<string>('auto');
+  const [textareaHeight, setTextareaHeight] = useState<string>('24px');
+  const [overflow, setOverflow] = useState<string>('hidden');
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  useEffect(() => {
-    setTextareaHeight(`${document.getElementById(name)?.scrollHeight}px`);
-  }, [value, name]);
-
-  const handleTextAreaChange = (
-    event: React.ChangeEvent<HTMLTextAreaElement>
-  ) => {
-    setTextareaHeight('auto');
-    onChange(event);
-  };
+  useLayoutEffect(() => {
+    setTextareaHeight(`${textareaRef.current?.scrollHeight}px`);
+    setOverflow(textareaHeight === '24px' ? 'hidden' : 'auto');
+  }, [value]);
 
   return (
     <StyledWrapper>
@@ -40,8 +38,13 @@ export const TextArea = ({
         id={name}
         name={name}
         value={value}
-        onChange={handleTextAreaChange}
-        style={{ height: textareaHeight }}
+        ref={textareaRef}
+        onChange={onChange}
+        style={{
+          height: textareaHeight,
+          maxHeight: '200px',
+          overflowY: overflow as any,
+        }}
         {...props}
       />
     </StyledWrapper>

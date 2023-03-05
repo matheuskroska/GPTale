@@ -1,15 +1,11 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import {
-  StyledError,
-  StyledLabel,
-  StyledTextArea,
-  StyledWrapper,
-} from './TextArea.styled';
+import { useEffect, useRef } from 'react';
+import { StyledLabel, StyledTextArea, StyledWrapper } from './TextArea.styled';
 
 export interface TextAreaProps {
   label?: string;
   name: string;
   value: string;
+  children?: React.ReactNode;
   onKeyDown?: (event: React.KeyboardEvent<HTMLTextAreaElement>) => void;
   onChange: (event: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
@@ -19,16 +15,19 @@ export const TextArea = ({
   name,
   value,
   onChange,
-  onKeyDown,
+  children,
   ...props
 }: TextAreaProps) => {
-  const [textareaHeight, setTextareaHeight] = useState<string>('24px');
-  const [overflow, setOverflow] = useState<string>('hidden');
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-  useLayoutEffect(() => {
-    setTextareaHeight(`${textareaRef.current?.scrollHeight}px`);
-    setOverflow(textareaHeight === '24px' ? 'hidden' : 'auto');
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = '24px';
+      textareaRef.current.style.overflowY =
+        textareaRef.current?.scrollHeight >= 200 ? 'auto' : 'hidden';
+      textareaRef.current.style.maxHeight = '200px';
+      textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
+    }
   }, [value]);
 
   return (
@@ -39,14 +38,11 @@ export const TextArea = ({
         name={name}
         value={value}
         ref={textareaRef}
+        placeholder="Type your prompt here..."
         onChange={onChange}
-        style={{
-          height: textareaHeight,
-          maxHeight: '200px',
-          overflowY: overflow as any,
-        }}
         {...props}
       />
+      {children}
     </StyledWrapper>
   );
 };

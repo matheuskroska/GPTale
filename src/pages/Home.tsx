@@ -2,6 +2,7 @@ import { Button } from '@/components/Button/Button';
 import { BUTTON_VARIANTS } from '@/components/Button/Button';
 import { TextArea } from '@/components/TextArea/TextArea';
 import { useState } from 'react';
+import { SlControlPlay } from 'react-icons/sl';
 
 function Home() {
   const [promptValue, setPromptValue] = useState<string>('');
@@ -14,14 +15,15 @@ function Home() {
 
   return (
     <>
-      <h1>Hello World</h1>
-      <Button variant={BUTTON_VARIANTS.PRIMARY}>Primário</Button>
-      <Button variant={BUTTON_VARIANTS.SECONDARY}>Secundário</Button>
       <TextArea
         name="prompt"
         value={promptValue}
         onChange={handleTextAreaChange}
-      ></TextArea>
+      >
+        <Button variant={BUTTON_VARIANTS.ICON}>
+          <SlControlPlay />
+        </Button>
+      </TextArea>
     </>
   );
 }

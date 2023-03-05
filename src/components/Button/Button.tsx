@@ -3,6 +3,7 @@ import { StyledButton } from './Button.styled';
 export const BUTTON_VARIANTS = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
+  ICON: 'icon',
 };
 
 export interface ButtonProps {
@@ -23,6 +24,7 @@ export const Button = ({
       onClick={onClick}
       variant={variant}
       type="button"
+      {...props}
     >
       {children}
     </StyledButton>

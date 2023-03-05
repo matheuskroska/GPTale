@@ -29,6 +29,17 @@ const secondaryStyles = css<ButtonProps>`
   }
 `;
 
+const iconStyles = css<ButtonProps>`
+  background-color: transparent;
+  color: ${theme.colors.white};
+  padding: 0;
+  height: 0;
+
+  &:hover {
+    color: ${theme.colors.gray.dark};
+  }
+`;
+
 const baseStyles = css<ButtonProps>`
   padding: ${theme.spacing.sm} ${theme.spacing.lg};
   border-radius: ${theme.borderRadius.xl};
@@ -43,4 +54,5 @@ export const StyledButton = styled.button<ButtonProps>`
 
   ${(props) => props.variant === BUTTON_VARIANTS.PRIMARY && primaryStyles};
   ${(props) => props.variant === BUTTON_VARIANTS.SECONDARY && secondaryStyles};
+  ${(props) => props.variant === BUTTON_VARIANTS.ICON && iconStyles};
 `;

@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import theme from '../../styles/theme';
+import { StyledButton } from '../Button/Button.styled';
 
 export const StyledTextArea = styled.textarea`
   font-size: ${theme.font.sizes.textArea};
@@ -7,12 +8,33 @@ export const StyledTextArea = styled.textarea`
   color: ${theme.colors.gray.light};
   resize: none;
   width: 100%;
-  max-width: 48rem;
   background-color: transparent;
-  height: auto;
-  max-height: 20rem;
   border: 0;
-  overflow-y: hidden;
+  padding: 0 3.7rem 0 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    color: ${theme.colors.gray.medium};
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${theme.colors.gray.light};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${theme.colors.gray.medium};
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: ${theme.colors.gray.dark};
+  }
 `;
 
 export const StyledLabel = styled.label`
@@ -30,8 +52,19 @@ export const StyledError = styled.span`
 `;
 
 export const StyledWrapper = styled.div`
-  padding: ${theme.spacing.lg};
-  width: fit-content;
-  border-radius: ${theme.borderRadius.xl};
+  position: relative;
+  ${StyledButton} {
+    position: absolute;
+    bottom: 3.5rem;
+    right: 2rem;
+  }
+
+  padding: ${theme.spacing.lg} ${theme.spacing.sm} ${theme.spacing.lg}
+    ${theme.spacing.lg};
+  width: 100%;
+  border-radius: ${theme.borderRadius.lg};
   border: 1px solid ${theme.colors.gray.dark};
+  display: ${theme.flex.display.flex};
+  align-items: ${theme.flex.align.center};
+  justify-content: ${theme.flex.justify.center};
 `;

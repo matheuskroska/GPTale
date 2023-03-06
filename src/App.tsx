@@ -2,6 +2,7 @@ import { HashRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import GlobalStyles from './styles/global';
+import { BodyWrapper } from './components/BodyWrapper/BodyWrapper';
 
 export function App() {
   return (
@@ -16,7 +17,9 @@ export function WrappedApp() {
   return (
     <HashRouter>
       <GlobalStyles />
-      <App />
+      <BodyWrapper>
+        <App />
+      </BodyWrapper>
     </HashRouter>
   );
 }

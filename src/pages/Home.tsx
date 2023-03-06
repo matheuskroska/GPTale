@@ -1,8 +1,10 @@
 import { Button } from '@/components/Button/Button';
 import { BUTTON_VARIANTS } from '@/components/Button/Button';
+import { Logo } from '@/components/Logo/Logo';
 import { TextArea } from '@/components/TextArea/TextArea';
 import { useState } from 'react';
 import { SlControlPlay } from 'react-icons/sl';
+import { ReactComponent as LogoSvg } from '../assets/images/lady.svg';
 
 function Home() {
   const [promptValue, setPromptValue] = useState<string>('');
@@ -15,6 +17,9 @@ function Home() {
 
   return (
     <>
+      <Logo>
+        GPTale <LogoSvg />
+      </Logo>
       <TextArea
         name="prompt"
         value={promptValue}

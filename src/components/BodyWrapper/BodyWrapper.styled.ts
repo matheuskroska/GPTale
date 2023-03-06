@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import theme from '../../styles/theme';
 
 export const StyledBodyWrapper = styled.div`
+  position: relative;
   max-width: ${theme.breakpoints.md};
   margin: 0 auto;
 

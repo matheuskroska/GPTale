@@ -53,12 +53,7 @@ export const StyledError = styled.span`
 
 export const StyledWrapper = styled.div`
   position: relative;
-  ${StyledButton} {
-    position: absolute;
-    bottom: 3.5rem;
-    right: 2rem;
-  }
-
+  background-color: ${theme.colors.black};
   padding: ${theme.spacing.lg} ${theme.spacing.sm} ${theme.spacing.lg}
     ${theme.spacing.lg};
   width: 100%;
@@ -67,4 +62,10 @@ export const StyledWrapper = styled.div`
   display: ${theme.flex.display.flex};
   align-items: ${theme.flex.align.center};
   justify-content: ${theme.flex.justify.center};
+
+  ${StyledButton} {
+    position: absolute;
+    bottom: 3.5rem;
+    right: 2rem;
+  }
 `;

@@ -1,4 +1,6 @@
-## [Vite](https://vitejs.dev/) + [React](https://reactjs.org/) + [TypeScript](https://www.typescriptlang.org/)
+## GPTale
+
+![GPTale](gptale.png)
 
 This setup includes:
 

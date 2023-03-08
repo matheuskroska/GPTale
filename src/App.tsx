@@ -1,5 +1,5 @@
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
+import Home from './pages/Home/Home';
 import NotFound from './pages/NotFound';
 import GlobalStyles from './styles/global';
 import { BodyWrapper } from './components/BodyWrapper/BodyWrapper';

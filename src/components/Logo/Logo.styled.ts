@@ -7,6 +7,7 @@ export const StyledLogo = styled.h1`
   text-align: center;
   font-size: 20rem;
   position: relative;
+
   svg {
     width: 100%;
     filter: invert(1);
@@ -14,5 +15,6 @@ export const StyledLogo = styled.h1`
     position: absolute;
     left: -150px;
     top: 0px;
+    z-index: -1;
   }
 `;

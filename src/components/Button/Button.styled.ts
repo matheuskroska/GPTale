@@ -4,11 +4,13 @@ import { ButtonProps } from './Button';
 import { BUTTON_VARIANTS } from './Button';
 
 const primaryStyles = css<ButtonProps>`
-  background-color: ${theme.colors.primary};
   color: ${theme.colors.white};
+  background-color: transparent;
+  border: 1px solid ${theme.colors.white};
 
   &:hover {
-    background-color: ${theme.colors.secondary};
+    background-color: ${theme.colors.white};
+    color: ${theme.colors.black};
   }
 
   &:active {
@@ -42,7 +44,7 @@ const iconStyles = css<ButtonProps>`
 
 const baseStyles = css<ButtonProps>`
   padding: ${theme.spacing.sm} ${theme.spacing.lg};
-  border-radius: ${theme.borderRadius.xl};
+  border-radius: ${theme.borderRadius.lg};
   font-size: ${theme.font.sizes.paragraph};
   border: none;
   height: ${theme.spacing.xxl};

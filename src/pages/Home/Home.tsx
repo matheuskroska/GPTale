@@ -51,6 +51,7 @@ function Home() {
         <p>{tale.paragraph[1].p}</p>
         <p>{tale.paragraph[2].p}</p>
       </AIResponse>
+      <Button variant={BUTTON_VARIANTS.PRIMARY}>Print</Button>
     </StyledHome>
   );
 }
